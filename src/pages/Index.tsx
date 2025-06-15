@@ -13,6 +13,7 @@ import { LeaderboardsPage } from '@/components/phases/phase2/LeaderboardsPage';
 import { ReviewStudio } from '@/components/phases/phase3/ReviewStudio';
 import { MentorshipHub } from '@/components/phases/phase4/MentorshipHub';
 import { UniversityArena } from '@/components/phases/phase5/UniversityArena';
+import { ArenaHub } from '@/components/arenas/ArenaHub';
 
 const Index = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -30,6 +31,7 @@ const Index = () => {
               <Route path="/" element={<HomePage />} />
               <Route path="/dashboard" element={<DesignerDashboard />} />
               <Route path="/challenges" element={<ChallengesPage />} />
+              <Route path="/arenas" element={<ArenaHub />} />
               <Route path="/submit" element={<SubmitDesignPage />} />
               <Route path="/stylebox" element={<StyleBoxLibrary />} />
               <Route path="/seasonal" element={<SeasonalHub />} />

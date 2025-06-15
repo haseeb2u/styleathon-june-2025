@@ -12,7 +12,8 @@ import {
   MessageSquare,
   Users,
   GraduationCap,
-  X
+  X,
+  Swords
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -22,11 +23,12 @@ interface SidebarProps {
 
 const navigationItems = [
   {
-    title: 'PHASE 1',
+    title: 'CORE PLATFORM',
     items: [
       { name: 'Home', href: '/', icon: Home },
       { name: 'Dashboard', href: '/dashboard', icon: User },
       { name: 'Challenges', href: '/challenges', icon: Trophy },
+      { name: 'Arena Hub', href: '/arenas', icon: Swords },
       { name: 'Submit Design', href: '/submit', icon: Upload },
       { name: 'StyleBox Library', href: '/stylebox', icon: Archive },
     ]

@@ -1,7 +1,8 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Trophy, Users, Calendar, Star } from 'lucide-react';
+import { Trophy, Users, Calendar, Star, Swords, Globe, MapPin, Building2 } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 export function HomePage() {
   const stats = [
@@ -35,6 +36,33 @@ export function HomePage() {
       participants: 267,
       difficulty: 'Easy',
       prize: '$1,000'
+    }
+  ];
+
+  const featuredArenas = [
+    {
+      type: 'Global',
+      name: 'Global Arena',
+      description: 'Compete with designers worldwide',
+      participants: '45.2K',
+      icon: Globe,
+      color: 'from-blue-600 to-cyan-600'
+    },
+    {
+      type: 'City',
+      name: 'Karachi Design Arena',
+      description: 'Top designers from Karachi',
+      participants: '1.2K',
+      icon: MapPin,
+      color: 'from-green-600 to-emerald-600'
+    },
+    {
+      type: 'Branded',
+      name: 'Nike Design Arena',
+      description: 'Athletic innovation challenge',
+      participants: '892',
+      icon: Building2,
+      color: 'from-orange-600 to-red-600'
     }
   ];
 
@@ -80,6 +108,49 @@ export function HomePage() {
             </CardContent>
           </Card>
         ))}
+      </div>
+
+      {/* Featured Arenas */}
+      <div>
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center space-x-3">
+            <Swords className="w-6 h-6 text-purple-400" />
+            <h2 className="text-2xl font-bold text-white">Featured Arenas</h2>
+          </div>
+          <Button variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-800">
+            View All Arenas
+          </Button>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          {featuredArenas.map((arena, index) => (
+            <Card key={index} className="bg-gray-900 border-gray-800 hover:border-purple-500/50 transition-colors overflow-hidden">
+              <div className={`h-16 bg-gradient-to-r ${arena.color} relative`}>
+                <div className="absolute inset-0 bg-black/20"></div>
+                <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
+                  <arena.icon className="w-8 h-8 text-white" />
+                </div>
+              </div>
+              <CardContent className="p-6">
+                <div className="space-y-3">
+                  <div>
+                    <h3 className="text-lg font-semibold text-white">{arena.name}</h3>
+                    <p className="text-gray-400 text-sm">{arena.description}</p>
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <Badge className="bg-purple-500/20 text-purple-400">{arena.type} Arena</Badge>
+                    <span className="text-gray-400 text-sm">{arena.participants} designers</span>
+                  </div>
+                  
+                  <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                    Enter Arena
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
 
       {/* Featured Challenges */}
